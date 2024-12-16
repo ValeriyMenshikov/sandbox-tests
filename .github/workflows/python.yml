@@ -30,7 +30,7 @@ jobs:
 
       - name: Run tests
         run: |
-          poetry run pytest ./tests --alluredir=allure-results --disable-warnings
+          poetry run pytest ./tests --alluredir=allure-results --disable-warnings -n 3
         continue-on-error: true
 
       - name: Archive allure results
@@ -72,4 +72,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1.2.9
-      - run: echo "https://valeriymenshikov.github.io/dm-api-account-tests/"
+      - run: echo "https://valeriymenshikov.github.io/sandbox-tests/"
