@@ -1,0 +1,93 @@
+[tool.poetry]
+authors = ["Menshikov Valeriy Sergeevich <vmenshikov@ozon.ru>"]
+name = "sandbox-tests"
+version = "1.0.0"
+readme = "README.md"
+description = "sandbox-tests project"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+swagger-coverage = { url = "https://github.com/ValeriyMenshikov/swagger-coverage-py/archive/refs/heads/master.zip" }
+telebot = "^0.0.5"
+pytest-telegram-notifier = "^1.4.0"
+pytest = "^8.3.4"
+pydantic = "^2.10.3"
+pyhamcrest = "^2.1.0"
+py-linq = "^1.4.0"
+assertpy = "^1.1"
+allure-pytest = "^2.13.5"
+structlog = "^24.4.0"
+retrying = "^1.3.4"
+vyper-config = "^1.2.1"
+httpx = "^0.28.0"
+curlify2 = "^2.0.0"
+pytest-asyncio = "^0.24.0"
+
+
+### LINT config ###
+pre-commit = "^4.0.1"
+orjson = "^3.10.12"
+[tool.poetry.group.lint.dependencies]
+ruff = "^0.8.2"
+mypy = "^1.5.0"
+types-requests = "^2.32.0.20241016"
+aiohttp = "^3.11.10"
+aiohttp-retry = "^2.9.1"
+
+[tool.ruff]
+lint.select = ["N", "B", "A", "E", "W", "F", "ASYNC", "S", "D", "I"]
+lint.ignore = [
+    "PT001",
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D107",
+    "D104",
+    "W293",
+    "S101",
+    "D212",
+    "D200",
+    "UP007",
+    "S105",
+    "S311",
+]
+
+line-length = 120
+
+extend-exclude = [
+    "clients",
+    ".git",
+    "__pycache__",
+    "build",
+    "dist",
+    "__init__.py"
+]
+
+
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.flake8-builtins]
+builtins-ignorelist = ["id"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = """
+  -s
+  -vv
+  --alluredir=../allure-results
+  --disable-pytest-warnings
+  --durations=10
+"""
+#  --telegram-notifier
+#  --telegram-notifier-config-file=telegram-notifier-config.ini
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"

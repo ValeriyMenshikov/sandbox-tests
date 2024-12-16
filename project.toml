@@ -1,0 +1,39 @@
+#[[http]]
+#service_name = "register_service"
+#swagger = "http://5.63.153.31:8085/register/openapi.json"
+#
+#[[http]]
+#service_name = "auth_service"
+#swagger = "http://5.63.153.31:8085/auth/openapi.json"
+#
+#[[http]]
+#service_name = "mail_service"
+#swagger = "http://5.63.153.31:8085/mail/openapi.json"
+#
+#[[http]]
+#service_name = "users_service"
+#swagger = "http://5.63.153.31:8085/users/openapi.json"
+#
+#[[http]]
+#service_name = "account_service"
+#swagger = "http://5.63.153.31:8085/account/openapi.json"
+
+[[http]]
+service_name = "register_service"
+swagger = "http://0.0.0.0:85/register/openapi.json"
+
+[[http]]
+service_name = "auth_service"
+swagger = "http://0.0.0.0:85/auth/openapi.json"
+
+[[http]]
+service_name = "mail_service"
+swagger = "http://0.0.0.0:85/mail/openapi.json"
+
+[[http]]
+service_name = "users_service"
+swagger = "http://0.0.0.0:85/users/openapi.json"
+
+[[http]]
+service_name = "account_service"
+swagger = "http://0.0.0.0:85/account/openapi.json"

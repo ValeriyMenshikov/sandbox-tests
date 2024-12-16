@@ -1,0 +1,7 @@
+# Файл конфигурации для production
+service:
+  mail_service_mail_api: http://5.63.153.31:8085/mail
+  account_service_account_api: http://5.63.153.31:8085/account
+  users_service_user_api: http://5.63.153.31:8085/users
+  auth_service_auth_api: http://5.63.153.31:8085/auth
+  register_service_account_api: http://5.63.153.31:8085/register
