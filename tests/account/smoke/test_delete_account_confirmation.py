@@ -31,3 +31,37 @@ async def test_delete_account_confirmation(
     await account_service_account_api.confirmation_delete_account_account_confirmation_delete_delete(
         delete_token=delete_token, token=auth_token
     )
+
+
+async def test_delete_account_confirmation_twice(
+    auth_service_auth_api: auth_service.AuthApi,
+    account_service_account_api: account_service.AccountApi,
+    mail_service_mail_api: mail_service.MailApi,
+    registered_user: User,
+) -> None:
+    password = registered_user.password
+    login = registered_user.login
+    email = registered_user.email
+    response = await auth_service_auth_api.auth_auth_auth_post(
+        login_credentials=auth_service.LoginCredentials(login=login, password=password)
+    )
+    auth_token = response.metadata["token"]  # type: ignore[index]
+    await account_service_account_api.delete_account_account_delete(email=email, token=auth_token)
+    message_response = await mail_service_mail_api.search_mail_search_get(
+        limit=50, kind="containing", query=email, start=0
+    )
+    delete_token = ""
+    if isinstance(message_response.items, list):
+        for item in message_response.items:
+            body = item.content.body if item.content else ""
+            try:
+                delete_token = body.split()[13][:-1] if isinstance(body, str) else ""
+            except IndexError:
+                pass
+
+    await account_service_account_api.confirmation_delete_account_account_confirmation_delete_delete(
+        delete_token=delete_token, token=auth_token
+    )
+    await account_service_account_api.confirmation_delete_account_account_confirmation_delete_delete(
+        delete_token=delete_token, token=auth_token
+    )

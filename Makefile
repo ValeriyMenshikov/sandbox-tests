@@ -6,7 +6,7 @@ init:
 	poetry install --no-interaction --no-root --no-ansi
 
 test:
-	pytest -v -s
+	pytest -v -s -n 3
 
 format:
 	poetry run ruff format

@@ -1,6 +1,9 @@
+import pytest
+
 from clients.http import mail_service
 
 
+@pytest.mark.skip("Блочит другие тесты так как удаляет все письма")
 async def test_delete_mail_messages(
     mail_service_mail_api: mail_service.MailApi,
 ) -> None:
