@@ -1,4 +1,6 @@
+from checkers.http_checkers import check_status_code_http
 from clients.http import account_service, auth_service, mail_service
+from clients.http.account_service import ApiException
 from tests.conftest import User
 
 
@@ -62,6 +64,9 @@ async def test_delete_account_confirmation_twice(
     await account_service_account_api.confirmation_delete_account_account_confirmation_delete_delete(
         delete_token=delete_token, token=auth_token
     )
-    await account_service_account_api.confirmation_delete_account_account_confirmation_delete_delete(
-        delete_token=delete_token, token=auth_token
-    )
+    with check_status_code_http(
+        exception=ApiException, expected_status_code=401, expected_message="Authorization failed"
+    ):
+        await account_service_account_api.confirmation_delete_account_account_confirmation_delete_delete(
+            delete_token=delete_token, token=auth_token
+        )
