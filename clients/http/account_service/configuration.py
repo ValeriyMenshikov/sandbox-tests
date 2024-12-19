@@ -184,7 +184,7 @@ class Configuration:
     ) -> None:
         """Constructor
         """
-        self._base_path = "http://0.0.0.0:85/account" if host is None else host
+        self._base_path = "http://5.63.153.31:8085/account" if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -500,7 +500,7 @@ class Configuration:
         """
         return [
             {
-                'url': "http://0.0.0.0:85/account",
+                'url': "http://5.63.153.31:8085/account",
                 'description': "No description provided",
             }
         ]

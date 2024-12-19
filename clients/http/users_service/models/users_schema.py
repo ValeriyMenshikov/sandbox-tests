@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from clients.http.users_service.models.user_schema import UserSchema
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,7 +27,7 @@ class UsersSchema(BaseModel):
     """
     UsersSchema
     """ # noqa: E501
-    users: Optional[List[UserSchema]] = Field(default=None, description="List of users")
+    users: List[UserSchema] = Field(description="List of users")
     __properties: ClassVar[List[str]] = ["users"]
 
     model_config = ConfigDict(

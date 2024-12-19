@@ -17,7 +17,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr
-from typing import Any, Optional
+from typing import Any
 from typing_extensions import Annotated
 from clients.http.account_service.models.change_email import ChangeEmail
 from clients.http.account_service.models.change_password import ChangePassword
@@ -599,8 +599,8 @@ class AccountApi:
     @validate_call
     async def confirmation_delete_account_account_confirmation_delete_delete(
         self,
-        delete_token: Annotated[Optional[StrictStr], Field(description="Токен для подтверждения удаления учетной записи")],
-        token: Annotated[Optional[StrictStr], Field(description="Авторизационный токен")],
+        delete_token: Annotated[StrictStr, Field(description="Токен для подтверждения удаления учетной записи")],
+        token: Annotated[StrictStr, Field(description="Авторизационный токен")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -671,8 +671,8 @@ class AccountApi:
     @validate_call
     async def confirmation_delete_account_account_confirmation_delete_delete_with_http_info(
         self,
-        delete_token: Annotated[Optional[StrictStr], Field(description="Токен для подтверждения удаления учетной записи")],
-        token: Annotated[Optional[StrictStr], Field(description="Авторизационный токен")],
+        delete_token: Annotated[StrictStr, Field(description="Токен для подтверждения удаления учетной записи")],
+        token: Annotated[StrictStr, Field(description="Авторизационный токен")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -743,8 +743,8 @@ class AccountApi:
     @validate_call
     async def confirmation_delete_account_account_confirmation_delete_delete_without_preload_content(
         self,
-        delete_token: Annotated[Optional[StrictStr], Field(description="Токен для подтверждения удаления учетной записи")],
-        token: Annotated[Optional[StrictStr], Field(description="Авторизационный токен")],
+        delete_token: Annotated[StrictStr, Field(description="Токен для подтверждения удаления учетной записи")],
+        token: Annotated[StrictStr, Field(description="Авторизационный токен")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -879,8 +879,8 @@ class AccountApi:
     @validate_call
     async def delete_account_account_delete(
         self,
-        email: Annotated[Optional[StrictStr], Field(description="email учетной записи")],
-        token: Annotated[Optional[StrictStr], Field(description="Авторизационный токен")],
+        email: Annotated[StrictStr, Field(description="email учетной записи")],
+        token: Annotated[StrictStr, Field(description="Авторизационный токен")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -951,8 +951,8 @@ class AccountApi:
     @validate_call
     async def delete_account_account_delete_with_http_info(
         self,
-        email: Annotated[Optional[StrictStr], Field(description="email учетной записи")],
-        token: Annotated[Optional[StrictStr], Field(description="Авторизационный токен")],
+        email: Annotated[StrictStr, Field(description="email учетной записи")],
+        token: Annotated[StrictStr, Field(description="Авторизационный токен")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1023,8 +1023,8 @@ class AccountApi:
     @validate_call
     async def delete_account_account_delete_without_preload_content(
         self,
-        email: Annotated[Optional[StrictStr], Field(description="email учетной записи")],
-        token: Annotated[Optional[StrictStr], Field(description="Авторизационный токен")],
+        email: Annotated[StrictStr, Field(description="email учетной записи")],
+        token: Annotated[StrictStr, Field(description="Авторизационный токен")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1159,7 +1159,7 @@ class AccountApi:
     @validate_call
     async def get_info_account_info_get(
         self,
-        token: Annotated[Optional[StrictStr], Field(description="Авторизационный токен")],
+        token: Annotated[StrictStr, Field(description="Авторизационный токен")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1227,7 +1227,7 @@ class AccountApi:
     @validate_call
     async def get_info_account_info_get_with_http_info(
         self,
-        token: Annotated[Optional[StrictStr], Field(description="Авторизационный токен")],
+        token: Annotated[StrictStr, Field(description="Авторизационный токен")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1295,7 +1295,7 @@ class AccountApi:
     @validate_call
     async def get_info_account_info_get_without_preload_content(
         self,
-        token: Annotated[Optional[StrictStr], Field(description="Авторизационный токен")],
+        token: Annotated[StrictStr, Field(description="Авторизационный токен")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1698,7 +1698,7 @@ class AccountApi:
     @validate_call
     async def update_info_account_info_patch(
         self,
-        token: Annotated[Optional[StrictStr], Field(description="Авторизационный токен")],
+        token: Annotated[StrictStr, Field(description="Авторизационный токен")],
         user_schema: UserSchema,
         _request_timeout: Union[
             None,
@@ -1770,7 +1770,7 @@ class AccountApi:
     @validate_call
     async def update_info_account_info_patch_with_http_info(
         self,
-        token: Annotated[Optional[StrictStr], Field(description="Авторизационный токен")],
+        token: Annotated[StrictStr, Field(description="Авторизационный токен")],
         user_schema: UserSchema,
         _request_timeout: Union[
             None,
@@ -1842,7 +1842,7 @@ class AccountApi:
     @validate_call
     async def update_info_account_info_patch_without_preload_content(
         self,
-        token: Annotated[Optional[StrictStr], Field(description="Авторизационный токен")],
+        token: Annotated[StrictStr, Field(description="Авторизационный токен")],
         user_schema: UserSchema,
         _request_timeout: Union[
             None,

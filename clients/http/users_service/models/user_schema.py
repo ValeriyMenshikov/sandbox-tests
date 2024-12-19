@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,7 +27,7 @@ class UserSchema(BaseModel):
     UserSchema
     """ # noqa: E501
     name: Optional[StrictStr] = None
-    login: Optional[StrictStr] = Field(default=None, description="User real name")
+    login: Optional[StrictStr] = None
     location: Optional[StrictStr] = None
     icq: Optional[StrictStr] = None
     skype: Optional[StrictStr] = None
@@ -77,6 +77,11 @@ class UserSchema(BaseModel):
         # and model_fields_set contains the field
         if self.name is None and "name" in self.model_fields_set:
             _dict['name'] = None
+
+        # set to None if login (nullable) is None
+        # and model_fields_set contains the field
+        if self.login is None and "login" in self.model_fields_set:
+            _dict['login'] = None
 
         # set to None if location (nullable) is None
         # and model_fields_set contains the field

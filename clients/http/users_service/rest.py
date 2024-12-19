@@ -17,6 +17,12 @@ import io
 import json
 import re
 import ssl
+from json import JSONDecodeError
+from unittest.mock import MagicMock
+
+import allure
+import curlify2
+
 from typing import Optional, Union
 
 import aiohttp
@@ -216,14 +222,20 @@ class RESTClientObject:
 
     async def _logged_request(self, pool_manager, **args) -> RESTResponse:
         log = structlog.get_logger().bind(service="api")
-        json_data = args.get("data")
+        json_data = args.get("data") if args.get("data") else "{}"
+        json_dict = json.loads(json_data)
         log.msg(
             "request",
             url=args.get("url", None),
             method=args.get("method"),
-            json=json.loads(json_data) if isinstance(json_data, str) else {},
+            json=json_dict,
             headers=args.get("headers", {}),
         )
+        request = MagicMock(**args, body=json_data)
+        curl = curlify2.Curlify(request).to_curl()
+        print(curl)
+        allure.attach(json_data, name="request", attachment_type=allure.attachment_type.JSON)
+        allure.attach(curl, name="request", attachment_type=allure.attachment_type.TEXT)
         try:
             r = await pool_manager.request(**args)
         except RuntimeError as e:
@@ -232,12 +244,19 @@ class RESTClientObject:
         else:
             log_response = r.__dict__
             data = await r.read()
+            try:
+                json_data = json.loads(data)
+                attachment_type = allure.attachment_type.JSON
+            except JSONDecodeError:
+                json_data = str(data)
+                attachment_type = allure.attachment_type.TEXT
             log.msg(
                 "response",
                 method=args.get("url", None),
                 url=log_response.get("_url", None),
-                json=json.loads(data) if isinstance(data, bytes) and data else "{}",
+                json=json_data,
                 headers=dict(log_response.get("_headers", {})),
                 status_code=log_response.get("status", None),
             )
+            allure.attach(str(data), name="response", attachment_type=attachment_type)
             return RESTResponse(r)

@@ -17,7 +17,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr
-from typing import Any, Optional
+from typing import Any
 from typing_extensions import Annotated
 from clients.http.auth_service.models.login_credentials import LoginCredentials
 from clients.http.auth_service.models.user_envelope import UserEnvelope
@@ -319,7 +319,7 @@ class AuthApi:
     @validate_call
     async def logout_all_auth_logout_all_delete(
         self,
-        token: Annotated[Optional[StrictStr], Field(description="Авторизационный токен")],
+        token: Annotated[StrictStr, Field(description="Авторизационный токен")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -387,7 +387,7 @@ class AuthApi:
     @validate_call
     async def logout_all_auth_logout_all_delete_with_http_info(
         self,
-        token: Annotated[Optional[StrictStr], Field(description="Авторизационный токен")],
+        token: Annotated[StrictStr, Field(description="Авторизационный токен")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -455,7 +455,7 @@ class AuthApi:
     @validate_call
     async def logout_all_auth_logout_all_delete_without_preload_content(
         self,
-        token: Annotated[Optional[StrictStr], Field(description="Авторизационный токен")],
+        token: Annotated[StrictStr, Field(description="Авторизационный токен")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -582,7 +582,7 @@ class AuthApi:
     @validate_call
     async def logout_auth_logout_delete(
         self,
-        token: Annotated[Optional[StrictStr], Field(description="Авторизационный токен")],
+        token: Annotated[StrictStr, Field(description="Авторизационный токен")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -650,7 +650,7 @@ class AuthApi:
     @validate_call
     async def logout_auth_logout_delete_with_http_info(
         self,
-        token: Annotated[Optional[StrictStr], Field(description="Авторизационный токен")],
+        token: Annotated[StrictStr, Field(description="Авторизационный токен")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -718,7 +718,7 @@ class AuthApi:
     @validate_call
     async def logout_auth_logout_delete_without_preload_content(
         self,
-        token: Annotated[Optional[StrictStr], Field(description="Авторизационный токен")],
+        token: Annotated[StrictStr, Field(description="Авторизационный токен")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,14 +26,14 @@ class UserSchema(BaseModel):
     """
     UserSchema
     """ # noqa: E501
-    name: Optional[StrictStr] = Field(default=None, description="User real name")
-    location: Optional[StrictStr] = Field(default=None, description="User real location")
-    icq: Optional[StrictStr] = Field(default=None, description="User ICQ")
-    skype: Optional[StrictStr] = Field(default=None, description="User Skype")
-    info: Optional[StrictStr] = Field(default=None, description="User info")
-    profile_picture_url: Optional[StrictStr] = Field(default=None, description="Profile picture URL")
-    medium_profile_picture_url: Optional[StrictStr] = Field(default=None, description="Medium profile picture URL")
-    small_profile_picture_url: Optional[StrictStr] = Field(default=None, description="Small profile picture URL")
+    name: Optional[StrictStr] = None
+    location: Optional[StrictStr] = None
+    icq: Optional[StrictStr] = None
+    skype: Optional[StrictStr] = None
+    info: Optional[StrictStr] = None
+    profile_picture_url: Optional[StrictStr] = None
+    medium_profile_picture_url: Optional[StrictStr] = None
+    small_profile_picture_url: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["name", "location", "icq", "skype", "info", "profile_picture_url", "medium_profile_picture_url", "small_profile_picture_url"]
 
     model_config = ConfigDict(
@@ -75,6 +75,46 @@ class UserSchema(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if name (nullable) is None
+        # and model_fields_set contains the field
+        if self.name is None and "name" in self.model_fields_set:
+            _dict['name'] = None
+
+        # set to None if location (nullable) is None
+        # and model_fields_set contains the field
+        if self.location is None and "location" in self.model_fields_set:
+            _dict['location'] = None
+
+        # set to None if icq (nullable) is None
+        # and model_fields_set contains the field
+        if self.icq is None and "icq" in self.model_fields_set:
+            _dict['icq'] = None
+
+        # set to None if skype (nullable) is None
+        # and model_fields_set contains the field
+        if self.skype is None and "skype" in self.model_fields_set:
+            _dict['skype'] = None
+
+        # set to None if info (nullable) is None
+        # and model_fields_set contains the field
+        if self.info is None and "info" in self.model_fields_set:
+            _dict['info'] = None
+
+        # set to None if profile_picture_url (nullable) is None
+        # and model_fields_set contains the field
+        if self.profile_picture_url is None and "profile_picture_url" in self.model_fields_set:
+            _dict['profile_picture_url'] = None
+
+        # set to None if medium_profile_picture_url (nullable) is None
+        # and model_fields_set contains the field
+        if self.medium_profile_picture_url is None and "medium_profile_picture_url" in self.model_fields_set:
+            _dict['medium_profile_picture_url'] = None
+
+        # set to None if small_profile_picture_url (nullable) is None
+        # and model_fields_set contains the field
+        if self.small_profile_picture_url is None and "small_profile_picture_url" in self.model_fields_set:
+            _dict['small_profile_picture_url'] = None
+
         return _dict
 
     @classmethod
