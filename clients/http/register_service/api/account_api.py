@@ -240,7 +240,6 @@ class AccountApi:
         return response_data.response
 
 
-    @allure.step("PUT /user/activate")
     def _activate_user_activate_put_serialize(
         self,
         token,
@@ -250,58 +249,59 @@ class AccountApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _host = None
+        with allure.step("PUT /user/activate"):
+            _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+            _collection_formats: Dict[str, str] = {
+            }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
+            _path_params: Dict[str, str] = {}
+            _query_params: List[Tuple[str, str]] = []
+            _header_params: Dict[str, Optional[str]] = _headers or {}
+            _form_params: List[Tuple[str, str]] = []
+            _files: Dict[
+                str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+            ] = {}
+            _body_params: Optional[bytes] = None
 
-        # process the path parameters
-        # process the query parameters
-        if token is not None:
+            # process the path parameters
+            # process the query parameters
+            if token is not None:
 
-            _query_params.append(('token', token))
+                _query_params.append(('token', token))
 
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
+            # process the header parameters
+            # process the form parameters
+            # process the body parameter
 
 
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+            # set the HTTP header `Accept`
+            if 'Accept' not in _header_params:
+                _header_params['Accept'] = self.api_client.select_header_accept(
+                    [
+                        'application/json'
+                    ]
+                )
+
+
+            # authentication setting
+            _auth_settings: List[str] = [
+            ]
+
+            return self.api_client.param_serialize(
+                method='PUT',
+                resource_path='/user/activate',
+                path_params=_path_params,
+                query_params=_query_params,
+                header_params=_header_params,
+                body=_body_params,
+                post_params=_form_params,
+                files=_files,
+                auth_settings=_auth_settings,
+                collection_formats=_collection_formats,
+                _host=_host,
+                _request_auth=_request_auth
             )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/user/activate',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
 
 
 
@@ -506,7 +506,6 @@ class AccountApi:
         return response_data.response
 
 
-    @allure.step("POST /user/register")
     def _register_user_register_post_serialize(
         self,
         registration,
@@ -516,66 +515,67 @@ class AccountApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _host = None
+        with allure.step("POST /user/register"):
+            _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+            _collection_formats: Dict[str, str] = {
+            }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
+            _path_params: Dict[str, str] = {}
+            _query_params: List[Tuple[str, str]] = []
+            _header_params: Dict[str, Optional[str]] = _headers or {}
+            _form_params: List[Tuple[str, str]] = []
+            _files: Dict[
+                str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+            ] = {}
+            _body_params: Optional[bytes] = None
 
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if registration is not None:
-            _body_params = registration
+            # process the path parameters
+            # process the query parameters
+            # process the header parameters
+            # process the form parameters
+            # process the body parameter
+            if registration is not None:
+                _body_params = registration
 
 
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
+            # set the HTTP header `Accept`
+            if 'Accept' not in _header_params:
+                _header_params['Accept'] = self.api_client.select_header_accept(
                     [
                         'application/json'
                     ]
                 )
+
+            # set the HTTP header `Content-Type`
+            if _content_type:
+                _header_params['Content-Type'] = _content_type
+            else:
+                _default_content_type = (
+                    self.api_client.select_header_content_type(
+                        [
+                            'application/json'
+                        ]
+                    )
+                )
+                if _default_content_type is not None:
+                    _header_params['Content-Type'] = _default_content_type
+
+            # authentication setting
+            _auth_settings: List[str] = [
+            ]
+
+            return self.api_client.param_serialize(
+                method='POST',
+                resource_path='/user/register',
+                path_params=_path_params,
+                query_params=_query_params,
+                header_params=_header_params,
+                body=_body_params,
+                post_params=_form_params,
+                files=_files,
+                auth_settings=_auth_settings,
+                collection_formats=_collection_formats,
+                _host=_host,
+                _request_auth=_request_auth
             )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/user/register',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )

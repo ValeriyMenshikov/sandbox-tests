@@ -241,7 +241,6 @@ class MailApi:
         return response_data.response
 
 
-    @allure.step("DELETE /mail/message/{message_id}")
     def _delete_message_mail_message_message_id_delete_serialize(
         self,
         message_id,
@@ -251,56 +250,57 @@ class MailApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _host = None
+        with allure.step("DELETE /mail/message/{message_id}"):
+            _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+            _collection_formats: Dict[str, str] = {
+            }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
+            _path_params: Dict[str, str] = {}
+            _query_params: List[Tuple[str, str]] = []
+            _header_params: Dict[str, Optional[str]] = _headers or {}
+            _form_params: List[Tuple[str, str]] = []
+            _files: Dict[
+                str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+            ] = {}
+            _body_params: Optional[bytes] = None
 
-        # process the path parameters
-        if message_id is not None:
-            _path_params['message_id'] = message_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
+            # process the path parameters
+            if message_id is not None:
+                _path_params['message_id'] = message_id
+            # process the query parameters
+            # process the header parameters
+            # process the form parameters
+            # process the body parameter
 
 
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+            # set the HTTP header `Accept`
+            if 'Accept' not in _header_params:
+                _header_params['Accept'] = self.api_client.select_header_accept(
+                    [
+                        'application/json'
+                    ]
+                )
+
+
+            # authentication setting
+            _auth_settings: List[str] = [
+            ]
+
+            return self.api_client.param_serialize(
+                method='DELETE',
+                resource_path='/mail/message/{message_id}',
+                path_params=_path_params,
+                query_params=_query_params,
+                header_params=_header_params,
+                body=_body_params,
+                post_params=_form_params,
+                files=_files,
+                auth_settings=_auth_settings,
+                collection_formats=_collection_formats,
+                _host=_host,
+                _request_auth=_request_auth
             )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='DELETE',
-            resource_path='/mail/message/{message_id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
 
 
 
@@ -490,7 +490,6 @@ class MailApi:
         return response_data.response
 
 
-    @allure.step("DELETE /mail/messages")
     def _delete_messages_mail_messages_delete_serialize(
         self,
         _request_auth,
@@ -499,54 +498,55 @@ class MailApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _host = None
+        with allure.step("DELETE /mail/messages"):
+            _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+            _collection_formats: Dict[str, str] = {
+            }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
+            _path_params: Dict[str, str] = {}
+            _query_params: List[Tuple[str, str]] = []
+            _header_params: Dict[str, Optional[str]] = _headers or {}
+            _form_params: List[Tuple[str, str]] = []
+            _files: Dict[
+                str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+            ] = {}
+            _body_params: Optional[bytes] = None
 
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
+            # process the path parameters
+            # process the query parameters
+            # process the header parameters
+            # process the form parameters
+            # process the body parameter
 
 
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+            # set the HTTP header `Accept`
+            if 'Accept' not in _header_params:
+                _header_params['Accept'] = self.api_client.select_header_accept(
+                    [
+                        'application/json'
+                    ]
+                )
+
+
+            # authentication setting
+            _auth_settings: List[str] = [
+            ]
+
+            return self.api_client.param_serialize(
+                method='DELETE',
+                resource_path='/mail/messages',
+                path_params=_path_params,
+                query_params=_query_params,
+                header_params=_header_params,
+                body=_body_params,
+                post_params=_form_params,
+                files=_files,
+                auth_settings=_auth_settings,
+                collection_formats=_collection_formats,
+                _host=_host,
+                _request_auth=_request_auth
             )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='DELETE',
-            resource_path='/mail/messages',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
 
 
 
@@ -751,7 +751,6 @@ class MailApi:
         return response_data.response
 
 
-    @allure.step("GET /mail/message/{message_id}")
     def _get_message_mail_message_message_id_get_serialize(
         self,
         message_id,
@@ -761,56 +760,57 @@ class MailApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _host = None
+        with allure.step("GET /mail/message/{message_id}"):
+            _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+            _collection_formats: Dict[str, str] = {
+            }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
+            _path_params: Dict[str, str] = {}
+            _query_params: List[Tuple[str, str]] = []
+            _header_params: Dict[str, Optional[str]] = _headers or {}
+            _form_params: List[Tuple[str, str]] = []
+            _files: Dict[
+                str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+            ] = {}
+            _body_params: Optional[bytes] = None
 
-        # process the path parameters
-        if message_id is not None:
-            _path_params['message_id'] = message_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
+            # process the path parameters
+            if message_id is not None:
+                _path_params['message_id'] = message_id
+            # process the query parameters
+            # process the header parameters
+            # process the form parameters
+            # process the body parameter
 
 
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+            # set the HTTP header `Accept`
+            if 'Accept' not in _header_params:
+                _header_params['Accept'] = self.api_client.select_header_accept(
+                    [
+                        'application/json'
+                    ]
+                )
+
+
+            # authentication setting
+            _auth_settings: List[str] = [
+            ]
+
+            return self.api_client.param_serialize(
+                method='GET',
+                resource_path='/mail/message/{message_id}',
+                path_params=_path_params,
+                query_params=_query_params,
+                header_params=_header_params,
+                body=_body_params,
+                post_params=_form_params,
+                files=_files,
+                auth_settings=_auth_settings,
+                collection_formats=_collection_formats,
+                _host=_host,
+                _request_auth=_request_auth
             )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/mail/message/{message_id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
 
 
 
@@ -1012,7 +1012,6 @@ class MailApi:
         return response_data.response
 
 
-    @allure.step("GET /mail/messages")
     def _get_messages_mail_messages_get_serialize(
         self,
         limit,
@@ -1022,58 +1021,59 @@ class MailApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _host = None
+        with allure.step("GET /mail/messages"):
+            _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+            _collection_formats: Dict[str, str] = {
+            }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
+            _path_params: Dict[str, str] = {}
+            _query_params: List[Tuple[str, str]] = []
+            _header_params: Dict[str, Optional[str]] = _headers or {}
+            _form_params: List[Tuple[str, str]] = []
+            _files: Dict[
+                str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+            ] = {}
+            _body_params: Optional[bytes] = None
 
-        # process the path parameters
-        # process the query parameters
-        if limit is not None:
+            # process the path parameters
+            # process the query parameters
+            if limit is not None:
 
-            _query_params.append(('limit', limit))
+                _query_params.append(('limit', limit))
 
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
+            # process the header parameters
+            # process the form parameters
+            # process the body parameter
 
 
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+            # set the HTTP header `Accept`
+            if 'Accept' not in _header_params:
+                _header_params['Accept'] = self.api_client.select_header_accept(
+                    [
+                        'application/json'
+                    ]
+                )
+
+
+            # authentication setting
+            _auth_settings: List[str] = [
+            ]
+
+            return self.api_client.param_serialize(
+                method='GET',
+                resource_path='/mail/messages',
+                path_params=_path_params,
+                query_params=_query_params,
+                header_params=_header_params,
+                body=_body_params,
+                post_params=_form_params,
+                files=_files,
+                auth_settings=_auth_settings,
+                collection_formats=_collection_formats,
+                _host=_host,
+                _request_auth=_request_auth
             )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/mail/messages',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
 
 
 
@@ -1311,7 +1311,6 @@ class MailApi:
         return response_data.response
 
 
-    @allure.step("GET /mail/search")
     def _search_mail_search_get_serialize(
         self,
         limit,
@@ -1324,67 +1323,68 @@ class MailApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _host = None
+        with allure.step("GET /mail/search"):
+            _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+            _collection_formats: Dict[str, str] = {
+            }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
+            _path_params: Dict[str, str] = {}
+            _query_params: List[Tuple[str, str]] = []
+            _header_params: Dict[str, Optional[str]] = _headers or {}
+            _form_params: List[Tuple[str, str]] = []
+            _files: Dict[
+                str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+            ] = {}
+            _body_params: Optional[bytes] = None
 
-        # process the path parameters
-        # process the query parameters
-        if limit is not None:
+            # process the path parameters
+            # process the query parameters
+            if limit is not None:
 
-            _query_params.append(('limit', limit))
+                _query_params.append(('limit', limit))
 
-        if kind is not None:
+            if kind is not None:
 
-            _query_params.append(('kind', kind))
+                _query_params.append(('kind', kind))
 
-        if query is not None:
+            if query is not None:
 
-            _query_params.append(('query', query))
+                _query_params.append(('query', query))
 
-        if start is not None:
+            if start is not None:
 
-            _query_params.append(('start', start))
+                _query_params.append(('start', start))
 
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
+            # process the header parameters
+            # process the form parameters
+            # process the body parameter
 
 
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+            # set the HTTP header `Accept`
+            if 'Accept' not in _header_params:
+                _header_params['Accept'] = self.api_client.select_header_accept(
+                    [
+                        'application/json'
+                    ]
+                )
+
+
+            # authentication setting
+            _auth_settings: List[str] = [
+            ]
+
+            return self.api_client.param_serialize(
+                method='GET',
+                resource_path='/mail/search',
+                path_params=_path_params,
+                query_params=_query_params,
+                header_params=_header_params,
+                body=_body_params,
+                post_params=_form_params,
+                files=_files,
+                auth_settings=_auth_settings,
+                collection_formats=_collection_formats,
+                _host=_host,
+                _request_auth=_request_auth
             )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/mail/search',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )

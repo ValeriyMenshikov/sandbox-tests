@@ -241,7 +241,6 @@ class AuthApi:
         return response_data.response
 
 
-    @allure.step("POST /auth/auth")
     def _auth_auth_auth_post_serialize(
         self,
         login_credentials,
@@ -251,69 +250,70 @@ class AuthApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _host = None
+        with allure.step("POST /auth/auth"):
+            _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+            _collection_formats: Dict[str, str] = {
+            }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
+            _path_params: Dict[str, str] = {}
+            _query_params: List[Tuple[str, str]] = []
+            _header_params: Dict[str, Optional[str]] = _headers or {}
+            _form_params: List[Tuple[str, str]] = []
+            _files: Dict[
+                str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+            ] = {}
+            _body_params: Optional[bytes] = None
 
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if login_credentials is not None:
-            _body_params = login_credentials
+            # process the path parameters
+            # process the query parameters
+            # process the header parameters
+            # process the form parameters
+            # process the body parameter
+            if login_credentials is not None:
+                _body_params = login_credentials
 
 
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
+            # set the HTTP header `Accept`
+            if 'Accept' not in _header_params:
+                _header_params['Accept'] = self.api_client.select_header_accept(
                     [
                         'application/json'
                     ]
                 )
+
+            # set the HTTP header `Content-Type`
+            if _content_type:
+                _header_params['Content-Type'] = _content_type
+            else:
+                _default_content_type = (
+                    self.api_client.select_header_content_type(
+                        [
+                            'application/json'
+                        ]
+                    )
+                )
+                if _default_content_type is not None:
+                    _header_params['Content-Type'] = _default_content_type
+
+            # authentication setting
+            _auth_settings: List[str] = [
+            ]
+
+            return self.api_client.param_serialize(
+                method='POST',
+                resource_path='/auth/auth',
+                path_params=_path_params,
+                query_params=_query_params,
+                header_params=_header_params,
+                body=_body_params,
+                post_params=_form_params,
+                files=_files,
+                auth_settings=_auth_settings,
+                collection_formats=_collection_formats,
+                _host=_host,
+                _request_auth=_request_auth
             )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/auth/auth',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
 
 
 
@@ -518,7 +518,6 @@ class AuthApi:
         return response_data.response
 
 
-    @allure.step("DELETE /auth/logout/all")
     def _logout_all_auth_logout_all_delete_serialize(
         self,
         token,
@@ -528,56 +527,57 @@ class AuthApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _host = None
+        with allure.step("DELETE /auth/logout/all"):
+            _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+            _collection_formats: Dict[str, str] = {
+            }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
+            _path_params: Dict[str, str] = {}
+            _query_params: List[Tuple[str, str]] = []
+            _header_params: Dict[str, Optional[str]] = _headers or {}
+            _form_params: List[Tuple[str, str]] = []
+            _files: Dict[
+                str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+            ] = {}
+            _body_params: Optional[bytes] = None
 
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        if token is not None:
-            _header_params['token'] = token
-        # process the form parameters
-        # process the body parameter
+            # process the path parameters
+            # process the query parameters
+            # process the header parameters
+            if token is not None:
+                _header_params['token'] = token
+            # process the form parameters
+            # process the body parameter
 
 
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+            # set the HTTP header `Accept`
+            if 'Accept' not in _header_params:
+                _header_params['Accept'] = self.api_client.select_header_accept(
+                    [
+                        'application/json'
+                    ]
+                )
+
+
+            # authentication setting
+            _auth_settings: List[str] = [
+            ]
+
+            return self.api_client.param_serialize(
+                method='DELETE',
+                resource_path='/auth/logout/all',
+                path_params=_path_params,
+                query_params=_query_params,
+                header_params=_header_params,
+                body=_body_params,
+                post_params=_form_params,
+                files=_files,
+                auth_settings=_auth_settings,
+                collection_formats=_collection_formats,
+                _host=_host,
+                _request_auth=_request_auth
             )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='DELETE',
-            resource_path='/auth/logout/all',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
 
 
 
@@ -782,7 +782,6 @@ class AuthApi:
         return response_data.response
 
 
-    @allure.step("DELETE /auth/logout")
     def _logout_auth_logout_delete_serialize(
         self,
         token,
@@ -792,53 +791,54 @@ class AuthApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _host = None
+        with allure.step("DELETE /auth/logout"):
+            _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+            _collection_formats: Dict[str, str] = {
+            }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
+            _path_params: Dict[str, str] = {}
+            _query_params: List[Tuple[str, str]] = []
+            _header_params: Dict[str, Optional[str]] = _headers or {}
+            _form_params: List[Tuple[str, str]] = []
+            _files: Dict[
+                str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+            ] = {}
+            _body_params: Optional[bytes] = None
 
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        if token is not None:
-            _header_params['token'] = token
-        # process the form parameters
-        # process the body parameter
+            # process the path parameters
+            # process the query parameters
+            # process the header parameters
+            if token is not None:
+                _header_params['token'] = token
+            # process the form parameters
+            # process the body parameter
 
 
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+            # set the HTTP header `Accept`
+            if 'Accept' not in _header_params:
+                _header_params['Accept'] = self.api_client.select_header_accept(
+                    [
+                        'application/json'
+                    ]
+                )
+
+
+            # authentication setting
+            _auth_settings: List[str] = [
+            ]
+
+            return self.api_client.param_serialize(
+                method='DELETE',
+                resource_path='/auth/logout',
+                path_params=_path_params,
+                query_params=_query_params,
+                header_params=_header_params,
+                body=_body_params,
+                post_params=_form_params,
+                files=_files,
+                auth_settings=_auth_settings,
+                collection_formats=_collection_formats,
+                _host=_host,
+                _request_auth=_request_auth
             )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='DELETE',
-            resource_path='/auth/logout',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )

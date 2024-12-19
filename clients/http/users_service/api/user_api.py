@@ -251,7 +251,6 @@ class UserApi:
         return response_data.response
 
 
-    @allure.step("GET /users/users")
     def _get_users_users_users_get_serialize(
         self,
         limit,
@@ -262,62 +261,63 @@ class UserApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _host = None
+        with allure.step("GET /users/users"):
+            _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+            _collection_formats: Dict[str, str] = {
+            }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
+            _path_params: Dict[str, str] = {}
+            _query_params: List[Tuple[str, str]] = []
+            _header_params: Dict[str, Optional[str]] = _headers or {}
+            _form_params: List[Tuple[str, str]] = []
+            _files: Dict[
+                str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+            ] = {}
+            _body_params: Optional[bytes] = None
 
-        # process the path parameters
-        # process the query parameters
-        if limit is not None:
+            # process the path parameters
+            # process the query parameters
+            if limit is not None:
 
-            _query_params.append(('limit', limit))
+                _query_params.append(('limit', limit))
 
-        if offset is not None:
+            if offset is not None:
 
-            _query_params.append(('offset', offset))
+                _query_params.append(('offset', offset))
 
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
+            # process the header parameters
+            # process the form parameters
+            # process the body parameter
 
 
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+            # set the HTTP header `Accept`
+            if 'Accept' not in _header_params:
+                _header_params['Accept'] = self.api_client.select_header_accept(
+                    [
+                        'application/json'
+                    ]
+                )
+
+
+            # authentication setting
+            _auth_settings: List[str] = [
+            ]
+
+            return self.api_client.param_serialize(
+                method='GET',
+                resource_path='/users/users',
+                path_params=_path_params,
+                query_params=_query_params,
+                header_params=_header_params,
+                body=_body_params,
+                post_params=_form_params,
+                files=_files,
+                auth_settings=_auth_settings,
+                collection_formats=_collection_formats,
+                _host=_host,
+                _request_auth=_request_auth
             )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/users/users',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
 
 
 
@@ -546,7 +546,6 @@ class UserApi:
         return response_data.response
 
 
-    @allure.step("GET /users/users/search")
     def _search_users_users_users_search_get_serialize(
         self,
         search,
@@ -558,63 +557,64 @@ class UserApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _host = None
+        with allure.step("GET /users/users/search"):
+            _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+            _collection_formats: Dict[str, str] = {
+            }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
+            _path_params: Dict[str, str] = {}
+            _query_params: List[Tuple[str, str]] = []
+            _header_params: Dict[str, Optional[str]] = _headers or {}
+            _form_params: List[Tuple[str, str]] = []
+            _files: Dict[
+                str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+            ] = {}
+            _body_params: Optional[bytes] = None
 
-        # process the path parameters
-        # process the query parameters
-        if search is not None:
+            # process the path parameters
+            # process the query parameters
+            if search is not None:
 
-            _query_params.append(('search', search))
+                _query_params.append(('search', search))
 
-        if limit is not None:
+            if limit is not None:
 
-            _query_params.append(('limit', limit))
+                _query_params.append(('limit', limit))
 
-        if offset is not None:
+            if offset is not None:
 
-            _query_params.append(('offset', offset))
+                _query_params.append(('offset', offset))
 
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
+            # process the header parameters
+            # process the form parameters
+            # process the body parameter
 
 
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+            # set the HTTP header `Accept`
+            if 'Accept' not in _header_params:
+                _header_params['Accept'] = self.api_client.select_header_accept(
+                    [
+                        'application/json'
+                    ]
+                )
+
+
+            # authentication setting
+            _auth_settings: List[str] = [
+            ]
+
+            return self.api_client.param_serialize(
+                method='GET',
+                resource_path='/users/users/search',
+                path_params=_path_params,
+                query_params=_query_params,
+                header_params=_header_params,
+                body=_body_params,
+                post_params=_form_params,
+                files=_files,
+                auth_settings=_auth_settings,
+                collection_formats=_collection_formats,
+                _host=_host,
+                _request_auth=_request_auth
             )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/users/users/search',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
