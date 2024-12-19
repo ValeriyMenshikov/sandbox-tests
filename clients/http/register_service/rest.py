@@ -234,7 +234,7 @@ class RESTClientObject:
         request = MagicMock(**args, body=json_data)
         curl = curlify2.Curlify(request).to_curl()
         print(curl)
-        allure.attach(json.dumps(json_data, indent=4), name="request", attachment_type=allure.attachment_type.JSON)
+        allure.attach(json.dumps(json_dict, indent=4), name="request", attachment_type=allure.attachment_type.JSON)
         allure.attach(curl, name="request", attachment_type=allure.attachment_type.TEXT)
         try:
             r = await pool_manager.request(**args)
