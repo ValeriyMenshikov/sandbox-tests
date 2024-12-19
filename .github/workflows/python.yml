@@ -30,7 +30,7 @@ jobs:
 
       - name: Run tests
         run: |
-          poetry run pytest ./tests --alluredir=allure-results --disable-warnings -n 3
+          poetry run pytest ./tests --alluredir=allure-results --disable-warnings
         continue-on-error: true
 
       - name: Archive allure results
