@@ -12,6 +12,7 @@
 """  # noqa: E501
 
 import warnings
+import allure
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
@@ -240,6 +241,7 @@ class AuthApi:
         return response_data.response
 
 
+    @allure.step("POST /auth/auth")
     def _auth_auth_auth_post_serialize(
         self,
         login_credentials,
@@ -516,6 +518,7 @@ class AuthApi:
         return response_data.response
 
 
+    @allure.step("DELETE /auth/logout/all")
     def _logout_all_auth_logout_all_delete_serialize(
         self,
         token,
@@ -779,6 +782,7 @@ class AuthApi:
         return response_data.response
 
 
+    @allure.step("DELETE /auth/logout")
     def _logout_auth_logout_delete_serialize(
         self,
         token,

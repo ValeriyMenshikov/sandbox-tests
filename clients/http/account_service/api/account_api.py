@@ -12,6 +12,7 @@
 """  # noqa: E501
 
 import warnings
+import allure
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
@@ -244,6 +245,7 @@ class AccountApi:
         return response_data.response
 
 
+    @allure.step("PUT /account/change-email")
     def _change_email_account_change_email_put_serialize(
         self,
         change_email,
@@ -520,6 +522,7 @@ class AccountApi:
         return response_data.response
 
 
+    @allure.step("PUT /account/change-password")
     def _change_password_account_change_password_put_serialize(
         self,
         change_password,
@@ -808,6 +811,7 @@ class AccountApi:
         return response_data.response
 
 
+    @allure.step("DELETE /account/confirmation-delete")
     def _confirmation_delete_account_account_confirmation_delete_delete_serialize(
         self,
         delete_token,
@@ -1088,6 +1092,7 @@ class AccountApi:
         return response_data.response
 
 
+    @allure.step("DELETE /account")
     def _delete_account_account_delete_serialize(
         self,
         email,
@@ -1356,6 +1361,7 @@ class AccountApi:
         return response_data.response
 
 
+    @allure.step("GET /account/info")
     def _get_info_account_info_get_serialize(
         self,
         token,
@@ -1619,6 +1625,7 @@ class AccountApi:
         return response_data.response
 
 
+    @allure.step("POST /account/reset-password")
     def _reset_password_account_reset_password_post_serialize(
         self,
         reset_password,
@@ -1907,6 +1914,7 @@ class AccountApi:
         return response_data.response
 
 
+    @allure.step("PATCH /account/info")
     def _update_info_account_info_patch_serialize(
         self,
         token,

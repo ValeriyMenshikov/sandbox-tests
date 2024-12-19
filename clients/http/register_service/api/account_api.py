@@ -12,6 +12,7 @@
 """  # noqa: E501
 
 import warnings
+import allure
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
@@ -239,6 +240,7 @@ class AccountApi:
         return response_data.response
 
 
+    @allure.step("PUT /user/activate")
     def _activate_user_activate_put_serialize(
         self,
         token,
@@ -504,6 +506,7 @@ class AccountApi:
         return response_data.response
 
 
+    @allure.step("POST /user/register")
     def _register_user_register_post_serialize(
         self,
         registration,

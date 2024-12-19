@@ -12,6 +12,7 @@
 """  # noqa: E501
 
 import warnings
+import allure
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
@@ -250,6 +251,7 @@ class UserApi:
         return response_data.response
 
 
+    @allure.step("GET /users/users")
     def _get_users_users_users_get_serialize(
         self,
         limit,
@@ -544,6 +546,7 @@ class UserApi:
         return response_data.response
 
 
+    @allure.step("GET /users/users/search")
     def _search_users_users_users_search_get_serialize(
         self,
         search,

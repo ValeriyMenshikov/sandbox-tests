@@ -12,6 +12,7 @@
 """  # noqa: E501
 
 import warnings
+import allure
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
@@ -240,6 +241,7 @@ class MailApi:
         return response_data.response
 
 
+    @allure.step("DELETE /mail/message/{message_id}")
     def _delete_message_mail_message_message_id_delete_serialize(
         self,
         message_id,
@@ -488,6 +490,7 @@ class MailApi:
         return response_data.response
 
 
+    @allure.step("DELETE /mail/messages")
     def _delete_messages_mail_messages_delete_serialize(
         self,
         _request_auth,
@@ -748,6 +751,7 @@ class MailApi:
         return response_data.response
 
 
+    @allure.step("GET /mail/message/{message_id}")
     def _get_message_mail_message_message_id_get_serialize(
         self,
         message_id,
@@ -1008,6 +1012,7 @@ class MailApi:
         return response_data.response
 
 
+    @allure.step("GET /mail/messages")
     def _get_messages_mail_messages_get_serialize(
         self,
         limit,
@@ -1306,6 +1311,7 @@ class MailApi:
         return response_data.response
 
 
+    @allure.step("GET /mail/search")
     def _search_mail_search_get_serialize(
         self,
         limit,
