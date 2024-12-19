@@ -98,15 +98,16 @@ class MailApi:
             '200': "object",
             '422': "HTTPValidationError",
         }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        with allure.step("DELETE /mail/message/{message_id}"):
+            response_data = await self.api_client.call_api(
+                *_param,
+                _request_timeout=_request_timeout
+            )
+            await response_data.read()
+            return self.api_client.response_deserialize(
+                response_data=response_data,
+                response_types_map=_response_types_map,
+            ).data
 
 
     @validate_call
@@ -241,7 +242,6 @@ class MailApi:
         return response_data.response
 
 
-    @allure.step("DELETE /mail/message/{message_id}")
     def _delete_message_mail_message_message_id_delete_serialize(
         self,
         message_id,
@@ -250,6 +250,7 @@ class MailApi:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
 
         _host = None
 
@@ -357,15 +358,16 @@ class MailApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
         }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        with allure.step("DELETE /mail/messages"):
+            response_data = await self.api_client.call_api(
+                *_param,
+                _request_timeout=_request_timeout
+            )
+            await response_data.read()
+            return self.api_client.response_deserialize(
+                response_data=response_data,
+                response_types_map=_response_types_map,
+            ).data
 
 
     @validate_call
@@ -490,7 +492,6 @@ class MailApi:
         return response_data.response
 
 
-    @allure.step("DELETE /mail/messages")
     def _delete_messages_mail_messages_delete_serialize(
         self,
         _request_auth,
@@ -498,6 +499,7 @@ class MailApi:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
 
         _host = None
 
@@ -608,15 +610,16 @@ class MailApi:
             '200': "Item",
             '422': "HTTPValidationError",
         }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        with allure.step("GET /mail/message/{message_id}"):
+            response_data = await self.api_client.call_api(
+                *_param,
+                _request_timeout=_request_timeout
+            )
+            await response_data.read()
+            return self.api_client.response_deserialize(
+                response_data=response_data,
+                response_types_map=_response_types_map,
+            ).data
 
 
     @validate_call
@@ -751,7 +754,6 @@ class MailApi:
         return response_data.response
 
 
-    @allure.step("GET /mail/message/{message_id}")
     def _get_message_mail_message_message_id_get_serialize(
         self,
         message_id,
@@ -760,6 +762,7 @@ class MailApi:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
 
         _host = None
 
@@ -871,15 +874,16 @@ class MailApi:
             '200': "Messages",
             '422': "HTTPValidationError",
         }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        with allure.step("GET /mail/messages"):
+            response_data = await self.api_client.call_api(
+                *_param,
+                _request_timeout=_request_timeout
+            )
+            await response_data.read()
+            return self.api_client.response_deserialize(
+                response_data=response_data,
+                response_types_map=_response_types_map,
+            ).data
 
 
     @validate_call
@@ -1012,7 +1016,6 @@ class MailApi:
         return response_data.response
 
 
-    @allure.step("GET /mail/messages")
     def _get_messages_mail_messages_get_serialize(
         self,
         limit,
@@ -1021,6 +1024,7 @@ class MailApi:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
 
         _host = None
 
@@ -1146,15 +1150,16 @@ class MailApi:
             '200': "Messages",
             '422': "HTTPValidationError",
         }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        with allure.step("GET /mail/search"):
+            response_data = await self.api_client.call_api(
+                *_param,
+                _request_timeout=_request_timeout
+            )
+            await response_data.read()
+            return self.api_client.response_deserialize(
+                response_data=response_data,
+                response_types_map=_response_types_map,
+            ).data
 
 
     @validate_call
@@ -1311,7 +1316,6 @@ class MailApi:
         return response_data.response
 
 
-    @allure.step("GET /mail/search")
     def _search_mail_search_get_serialize(
         self,
         limit,
@@ -1323,6 +1327,7 @@ class MailApi:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
 
         _host = None
 

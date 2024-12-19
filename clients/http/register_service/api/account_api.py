@@ -97,15 +97,16 @@ class AccountApi:
             '200': "UserEnvelope",
             '422': "HTTPValidationError",
         }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        with allure.step("PUT /user/activate"):
+            response_data = await self.api_client.call_api(
+                *_param,
+                _request_timeout=_request_timeout
+            )
+            await response_data.read()
+            return self.api_client.response_deserialize(
+                response_data=response_data,
+                response_types_map=_response_types_map,
+            ).data
 
 
     @validate_call
@@ -240,7 +241,6 @@ class AccountApi:
         return response_data.response
 
 
-    @allure.step("PUT /user/activate")
     def _activate_user_activate_put_serialize(
         self,
         token,
@@ -249,6 +249,7 @@ class AccountApi:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
 
         _host = None
 
@@ -363,15 +364,16 @@ class AccountApi:
             '201': "object",
             '422': "HTTPValidationError",
         }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        with allure.step("POST /user/register"):
+            response_data = await self.api_client.call_api(
+                *_param,
+                _request_timeout=_request_timeout
+            )
+            await response_data.read()
+            return self.api_client.response_deserialize(
+                response_data=response_data,
+                response_types_map=_response_types_map,
+            ).data
 
 
     @validate_call
@@ -506,7 +508,6 @@ class AccountApi:
         return response_data.response
 
 
-    @allure.step("POST /user/register")
     def _register_user_register_post_serialize(
         self,
         registration,
@@ -515,6 +516,7 @@ class AccountApi:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
 
         _host = None
 

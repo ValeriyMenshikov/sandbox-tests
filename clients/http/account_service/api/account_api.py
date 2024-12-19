@@ -102,15 +102,16 @@ class AccountApi:
             '200': "UserEnvelope",
             '422': "HTTPValidationError",
         }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        with allure.step("PUT /account/change-email"):
+            response_data = await self.api_client.call_api(
+                *_param,
+                _request_timeout=_request_timeout
+            )
+            await response_data.read()
+            return self.api_client.response_deserialize(
+                response_data=response_data,
+                response_types_map=_response_types_map,
+            ).data
 
 
     @validate_call
@@ -245,7 +246,6 @@ class AccountApi:
         return response_data.response
 
 
-    @allure.step("PUT /account/change-email")
     def _change_email_account_change_email_put_serialize(
         self,
         change_email,
@@ -254,6 +254,7 @@ class AccountApi:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
 
         _host = None
 
@@ -379,15 +380,16 @@ class AccountApi:
             '200': "UserEnvelope",
             '422': "HTTPValidationError",
         }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        with allure.step("PUT /account/change-password"):
+            response_data = await self.api_client.call_api(
+                *_param,
+                _request_timeout=_request_timeout
+            )
+            await response_data.read()
+            return self.api_client.response_deserialize(
+                response_data=response_data,
+                response_types_map=_response_types_map,
+            ).data
 
 
     @validate_call
@@ -522,7 +524,6 @@ class AccountApi:
         return response_data.response
 
 
-    @allure.step("PUT /account/change-password")
     def _change_password_account_change_password_put_serialize(
         self,
         change_password,
@@ -531,6 +532,7 @@ class AccountApi:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
 
         _host = None
 
@@ -660,15 +662,16 @@ class AccountApi:
             '200': "object",
             '422': "HTTPValidationError",
         }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        with allure.step("DELETE /account/confirmation-delete"):
+            response_data = await self.api_client.call_api(
+                *_param,
+                _request_timeout=_request_timeout
+            )
+            await response_data.read()
+            return self.api_client.response_deserialize(
+                response_data=response_data,
+                response_types_map=_response_types_map,
+            ).data
 
 
     @validate_call
@@ -811,7 +814,6 @@ class AccountApi:
         return response_data.response
 
 
-    @allure.step("DELETE /account/confirmation-delete")
     def _confirmation_delete_account_account_confirmation_delete_delete_serialize(
         self,
         delete_token,
@@ -821,6 +823,7 @@ class AccountApi:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
 
         _host = None
 
@@ -941,15 +944,16 @@ class AccountApi:
             '200': "object",
             '422': "HTTPValidationError",
         }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        with allure.step("DELETE /account"):
+            response_data = await self.api_client.call_api(
+                *_param,
+                _request_timeout=_request_timeout
+            )
+            await response_data.read()
+            return self.api_client.response_deserialize(
+                response_data=response_data,
+                response_types_map=_response_types_map,
+            ).data
 
 
     @validate_call
@@ -1092,7 +1096,6 @@ class AccountApi:
         return response_data.response
 
 
-    @allure.step("DELETE /account")
     def _delete_account_account_delete_serialize(
         self,
         email,
@@ -1102,6 +1105,7 @@ class AccountApi:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
 
         _host = None
 
@@ -1218,15 +1222,16 @@ class AccountApi:
             '200': "UserDetailsEnvelope",
             '422': "HTTPValidationError",
         }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        with allure.step("GET /account/info"):
+            response_data = await self.api_client.call_api(
+                *_param,
+                _request_timeout=_request_timeout
+            )
+            await response_data.read()
+            return self.api_client.response_deserialize(
+                response_data=response_data,
+                response_types_map=_response_types_map,
+            ).data
 
 
     @validate_call
@@ -1361,7 +1366,6 @@ class AccountApi:
         return response_data.response
 
 
-    @allure.step("GET /account/info")
     def _get_info_account_info_get_serialize(
         self,
         token,
@@ -1370,6 +1374,7 @@ class AccountApi:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
 
         _host = None
 
@@ -1482,15 +1487,16 @@ class AccountApi:
             '200': "UserEnvelope",
             '422': "HTTPValidationError",
         }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        with allure.step("POST /account/reset-password"):
+            response_data = await self.api_client.call_api(
+                *_param,
+                _request_timeout=_request_timeout
+            )
+            await response_data.read()
+            return self.api_client.response_deserialize(
+                response_data=response_data,
+                response_types_map=_response_types_map,
+            ).data
 
 
     @validate_call
@@ -1625,7 +1631,6 @@ class AccountApi:
         return response_data.response
 
 
-    @allure.step("POST /account/reset-password")
     def _reset_password_account_reset_password_post_serialize(
         self,
         reset_password,
@@ -1634,6 +1639,7 @@ class AccountApi:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
 
         _host = None
 
@@ -1763,15 +1769,16 @@ class AccountApi:
             '200': "UserDetailsEnvelope",
             '422': "HTTPValidationError",
         }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        with allure.step("PATCH /account/info"):
+            response_data = await self.api_client.call_api(
+                *_param,
+                _request_timeout=_request_timeout
+            )
+            await response_data.read()
+            return self.api_client.response_deserialize(
+                response_data=response_data,
+                response_types_map=_response_types_map,
+            ).data
 
 
     @validate_call
@@ -1914,7 +1921,6 @@ class AccountApi:
         return response_data.response
 
 
-    @allure.step("PATCH /account/info")
     def _update_info_account_info_patch_serialize(
         self,
         token,
@@ -1924,6 +1930,7 @@ class AccountApi:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
 
         _host = None
 

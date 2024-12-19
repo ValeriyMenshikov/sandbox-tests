@@ -98,15 +98,16 @@ class AuthApi:
             '200': "UserEnvelope",
             '422': "HTTPValidationError",
         }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        with allure.step("POST /auth/auth"):
+            response_data = await self.api_client.call_api(
+                *_param,
+                _request_timeout=_request_timeout
+            )
+            await response_data.read()
+            return self.api_client.response_deserialize(
+                response_data=response_data,
+                response_types_map=_response_types_map,
+            ).data
 
 
     @validate_call
@@ -241,7 +242,6 @@ class AuthApi:
         return response_data.response
 
 
-    @allure.step("POST /auth/auth")
     def _auth_auth_auth_post_serialize(
         self,
         login_credentials,
@@ -250,6 +250,7 @@ class AuthApi:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
 
         _host = None
 
@@ -375,15 +376,16 @@ class AuthApi:
             '200': "object",
             '422': "HTTPValidationError",
         }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        with allure.step("DELETE /auth/logout/all"):
+            response_data = await self.api_client.call_api(
+                *_param,
+                _request_timeout=_request_timeout
+            )
+            await response_data.read()
+            return self.api_client.response_deserialize(
+                response_data=response_data,
+                response_types_map=_response_types_map,
+            ).data
 
 
     @validate_call
@@ -518,7 +520,6 @@ class AuthApi:
         return response_data.response
 
 
-    @allure.step("DELETE /auth/logout/all")
     def _logout_all_auth_logout_all_delete_serialize(
         self,
         token,
@@ -527,6 +528,7 @@ class AuthApi:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
 
         _host = None
 
@@ -639,15 +641,16 @@ class AuthApi:
             '200': "object",
             '422': "HTTPValidationError",
         }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        with allure.step("DELETE /auth/logout"):
+            response_data = await self.api_client.call_api(
+                *_param,
+                _request_timeout=_request_timeout
+            )
+            await response_data.read()
+            return self.api_client.response_deserialize(
+                response_data=response_data,
+                response_types_map=_response_types_map,
+            ).data
 
 
     @validate_call
@@ -782,7 +785,6 @@ class AuthApi:
         return response_data.response
 
 
-    @allure.step("DELETE /auth/logout")
     def _logout_auth_logout_delete_serialize(
         self,
         token,
@@ -791,6 +793,7 @@ class AuthApi:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
 
         _host = None
 

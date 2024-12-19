@@ -100,15 +100,16 @@ class UserApi:
             '200': "UsersSchema",
             '422': "HTTPValidationError",
         }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        with allure.step("GET /users/users"):
+            response_data = await self.api_client.call_api(
+                *_param,
+                _request_timeout=_request_timeout
+            )
+            await response_data.read()
+            return self.api_client.response_deserialize(
+                response_data=response_data,
+                response_types_map=_response_types_map,
+            ).data
 
 
     @validate_call
@@ -251,7 +252,6 @@ class UserApi:
         return response_data.response
 
 
-    @allure.step("GET /users/users")
     def _get_users_users_users_get_serialize(
         self,
         limit,
@@ -261,6 +261,7 @@ class UserApi:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
 
         _host = None
 
@@ -387,15 +388,16 @@ class UserApi:
             '200': "UsersSchema",
             '422': "HTTPValidationError",
         }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        with allure.step("GET /users/users/search"):
+            response_data = await self.api_client.call_api(
+                *_param,
+                _request_timeout=_request_timeout
+            )
+            await response_data.read()
+            return self.api_client.response_deserialize(
+                response_data=response_data,
+                response_types_map=_response_types_map,
+            ).data
 
 
     @validate_call
@@ -546,7 +548,6 @@ class UserApi:
         return response_data.response
 
 
-    @allure.step("GET /users/users/search")
     def _search_users_users_users_search_get_serialize(
         self,
         search,
@@ -557,6 +558,7 @@ class UserApi:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
 
         _host = None
 
