@@ -1,12 +1,4 @@
 # Файл конфигурации для stage
-#service:
-#  mail_service_mail_api: http://0.0.0.0:85/mail
-#  account_service_account_api: http://0.0.0.0:85/account
-#  users_service_user_api: http://0.0.0.0:85/users
-#  auth_service_auth_api: http://0.0.0.0:85/auth
-#  register_service_account_api: http://0.0.0.0:85/register
-
-
 service:
   mail_service_mail_api: http://0.0.0.0:8085/mail
   account_service_account_api: http://0.0.0.0:8085/account
