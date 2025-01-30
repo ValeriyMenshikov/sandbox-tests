@@ -28,6 +28,7 @@ pytest-asyncio = "^0.24.0"
 pre-commit = "^4.0.1"
 orjson = "^3.10.12"
 pytest-xdist = "^3.6.1"
+pytest-cov = "^6.0.0"
 [tool.poetry.group.lint.dependencies]
 ruff = "^0.8.2"
 mypy = "^1.5.0"
@@ -82,11 +83,18 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 addopts = """
-  -s
-  -vv
-  --alluredir=../allure-results
-  --disable-pytest-warnings
-  --durations=10
+    -s
+    -vv
+    --cov clients/http/auth_service/api
+    --cov clients/http/mail_service/api
+    --cov clients/http/register_service/api
+    --cov clients/http/users_service/api
+    --cov-report term-missing
+    --cov-report term
+    --cov-report html
+    --alluredir=../allure-results
+    --disable-pytest-warnings
+    --durations=10
 """
 #  --telegram-notifier
 #  --telegram-notifier-config-file=telegram-notifier-config.ini
